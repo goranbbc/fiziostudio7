@@ -77,10 +77,17 @@
     margin-bottom: 40px;
   }
 
+  /* Services 2x2 layout */
   .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+  }
+
+  @media(max-width: 600px) {
+    .services {
+      grid-template-columns: 1fr;
+    }
   }
 
   .service {
@@ -89,10 +96,14 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     padding: 25px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
+    cursor: pointer;
   }
 
-  .service:hover { transform: translateY(-5px); }
+  .service:hover {
+    transform: translateY(-5px);
+    background: #f0f8fa;
+  }
 
   .service h3 {
     color: #008d97;
@@ -162,6 +173,42 @@
   @media(max-width:600px) {
     header img { height: 120px; }
   }
+
+  /* Modal / Popup styling */
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto; 
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+
+  .close {
+    color: #008d97;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover { color: #005f63; }
+
 </style>
 </head>
 <body>
@@ -190,21 +237,21 @@
 <section id="usluge">
   <h2>Usluge</h2>
   <div class="services">
-    <div class="service">
+    <div class="service" onclick="openModal('Fizioterapijski tretmani', 'Programi usmereni na oporavak i balans mišića i zglobova, prilagođeni svakom klijentu.')">
       <h3>Fizioterapijski tretmani</h3>
-      <p>Programi usmereni na oporavak i balans mišića i zglobova, prilagođeni svakom klijentu.</p>
+      <p>Kliknite za više informacija</p>
     </div>
-    <div class="service">
+    <div class="service" onclick="openModal('Rehabilitacija nakon povreda', 'Individualni pristup u procesu postepenog povratka pokretljivosti i stabilnosti.')">
       <h3>Rehabilitacija nakon povreda</h3>
-      <p>Individualni pristup u procesu postepenog povratka pokretljivosti i stabilnosti.</p>
+      <p>Kliknite za više informacija</p>
     </div>
-    <div class="service">
+    <div class="service" onclick="openModal('Relaks i terapeutske masaže', 'Tehnike za smanjenje napetosti, poboljšanje cirkulacije i opuštanje mišića.')">
       <h3>Relaks i terapeutske masaže</h3>
-      <p>Tehnike za smanjenje napetosti, poboljšanje cirkulacije i opuštanje mišića.</p>
+      <p>Kliknite za više informacija</p>
     </div>
-    <div class="service">
+    <div class="service" onclick="openModal('Kineziterapija', 'Vežbe pokreta usmerene na pravilno držanje, stabilnost i sprečavanje disbalansa u telu.')">
       <h3>Kineziterapija</h3>
-      <p>Vežbe pokreta usmerene na pravilno držanje, stabilnost i sprečavanje disbalansa u telu.</p>
+      <p>Kliknite za više informacija</p>
     </div>
   </div>
 </section>
@@ -223,8 +270,8 @@
   <div class="contact-info">
     <p>Dimitrija Avramovića 17, Novi Sad</p>
     <p>
-      <a href="https://wa.me/381616651755" target="_blank">WhatsApp</a> |
-      <a href="https://www.instagram.com/" target="_blank">Instagram</a> |
+      <a href="https://wa.me/381616651755" target="_blank" rel="noopener noreferrer">WhatsApp</a> |
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> |
       <a href="mailto:fiziostudio7@gmail.com">Email</a>
     </p>
   </div>
@@ -238,6 +285,34 @@
 <footer>
   © 2025 Fizio Studio 7 | Dizajn: Goran Babic
 </footer>
+
+<!-- Modal -->
+<div id="serviceModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+function openModal(title, desc) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalDesc').innerText = desc;
+  document.getElementById('serviceModal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('serviceModal').style.display = 'none';
+}
+
+// Klik van modal van buiten
+window.onclick = function(event) {
+  if(event.target == document.getElementById('serviceModal')) {
+    closeModal();
+  }
+}
+</script>
 
 </body>
 </html>
