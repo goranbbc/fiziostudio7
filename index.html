@@ -23,14 +23,7 @@
   }
 
   header img { height: 150px; margin-bottom: 15px; }
-
-  header h1 {
-    font-weight: 600;
-    font-size: 1.8rem;
-    color: #008d97;
-    letter-spacing: 1px;
-  }
-
+  header h1 { font-weight: 600; font-size: 1.8rem; color: #008d97; letter-spacing: 1px; }
   header p { color: #666; font-style: italic; margin-top: 5px; }
 
   nav {
@@ -56,27 +49,11 @@
     padding: 0 20px;
   }
 
-  section h2 {
-    text-align: center;
-    color: #008d97;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
-  section p {
-    text-align: center;
-    color: #444;
-    font-size: 1rem;
-    margin-bottom: 40px;
-  }
+  section h2 { text-align: center; color: #008d97; font-weight: 600; margin-bottom: 20px; }
+  section p { text-align: center; color: #444; font-size: 1rem; margin-bottom: 40px; }
 
   /* Services 2x2 layout */
-  .services {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
   @media(max-width: 600px) { .services { grid-template-columns: 1fr; } }
 
   .service {
@@ -87,15 +64,8 @@
     text-align: center;
     transition: transform 0.3s ease, background 0.3s ease;
   }
-
   .service:hover { transform: translateY(-5px); background: #f0f8fa; }
-
-  .service h3 {
-    color: #008d97;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
+  .service h3 { color: #008d97; font-weight: 600; margin-bottom: 10px; }
   .short-desc { color: #555; font-size: 0.95rem; margin-bottom: 15px; }
 
   .btn-more {
@@ -108,39 +78,16 @@
     font-weight: 600;
     transition: background 0.3s;
   }
-
   .btn-more:hover { background-color: #005f63; }
 
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-  }
-
-  .gallery img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.4s ease;
-  }
-
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+  .gallery img { width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
   .gallery img:hover { transform: scale(1.03); }
 
   .contact-info { text-align: center; font-size: 1rem; color: #333; }
+  .contact-info a { color: #008d97; text-decoration: none; font-weight: 600; }
 
-  .contact-info a {
-    color: #008d97;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  iframe {
-    width: 100%;
-    height: 350px;
-    border: 0;
-    border-radius: 8px;
-    margin-top: 25px;
-  }
+  iframe { width: 100%; height: 350px; border: 0; border-radius: 8px; margin-top: 25px; }
 
   footer {
     text-align: center;
@@ -150,7 +97,6 @@
     font-size: 0.9rem;
     color: #555;
   }
-
   footer a { color: #008d97; text-decoration: none; margin: 0 10px; }
   footer a:hover { text-decoration: underline; }
 
@@ -178,18 +124,8 @@
   }
 
   .modal-content img { max-width: 100%; margin: 15px 0; border-radius: 8px; }
-
-  .close {
-    color: #008d97;
-    position: absolute;
-    top: 10px; right: 15px;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
+  .close { color: #008d97; position: absolute; top: 10px; right: 15px; font-size: 24px; font-weight: bold; cursor: pointer; }
   .close:hover { color: #005f63; }
-
 </style>
 </head>
 <body>
@@ -271,7 +207,7 @@
   © 2025 Fizio Studio 7 | Dizajn: Goran Babic
 </footer>
 
-<!-- Modal -->
+<!-- Modal / Popup -->
 <div id="serviceModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
@@ -294,7 +230,6 @@ function closeModal() {
   document.getElementById('serviceModal').style.display = 'none';
 }
 
-// Klikom van modala zatvori
 window.onclick = function(event) {
   if(event.target == document.getElementById('serviceModal')) {
     closeModal();
