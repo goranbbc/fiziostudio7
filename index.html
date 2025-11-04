@@ -113,10 +113,10 @@
   .short-desc {
     color: #555;
     font-size: 0.95rem;
+    margin-bottom: 15px;
   }
 
   .btn-more {
-    margin-top: 15px;
     padding: 10px 20px;
     background-color: #008d97;
     color: #fff;
@@ -260,22 +260,22 @@
   <div class="services">
     <div class="service">
       <h3>Fizioterapijski tretmani</h3>
-      <p class="short-desc">Programi usmereni na oporavak i balans mišića i zglobova.</p>
+      <p class="short-desc">Oporavak i balans mišića i zglobova kroz prilagođene programe.</p>
       <button class="btn-more" onclick="openModal('Fizioterapijski tretmani', 'Detaljan opis fizioterapijskih tretmana i kako pomažu klijentima.', 'fizio1.jpg')">Više</button>
     </div>
     <div class="service">
       <h3>Rehabilitacija nakon povreda</h3>
-      <p class="short-desc">Individualni pristup postepenom povratku pokretljivosti.</p>
+      <p class="short-desc">Postepeni povratak pokretljivosti i stabilnosti nakon povreda.</p>
       <button class="btn-more" onclick="openModal('Rehabilitacija nakon povreda', 'Detaljan opis rehabilitacije i programa nakon povreda.', 'fizio2.jpg')">Više</button>
     </div>
     <div class="service">
       <h3>Relaks i terapeutske masaže</h3>
-      <p class="short-desc">Tehnike za smanjenje napetosti i poboljšanje cirkulacije.</p>
+      <p class="short-desc">Smanjenje napetosti i poboljšanje cirkulacije mišića.</p>
       <button class="btn-more" onclick="openModal('Relaks i terapeutske masaže', 'Detaljan opis masaža i terapijskih tehnika.', 'fizio3.jpg')">Više</button>
     </div>
     <div class="service">
       <h3>Kineziterapija</h3>
-      <p class="short-desc">Vežbe pokreta za pravilno držanje i stabilnost.</p>
+      <p class="short-desc">Vežbe za pravilno držanje, stabilnost i balans tela.</p>
       <button class="btn-more" onclick="openModal('Kineziterapija', 'Detaljan opis kineziterapijskih vežbi i programa.', 'fizio4.jpg')">Više</button>
     </div>
   </div>
@@ -311,35 +311,3 @@
   © 2025 Fizio Studio 7 | Dizajn: Goran Babic
 </footer>
 
-<!-- Modal -->
-<div id="serviceModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3 id="modalTitle"></h3>
-    <img id="modalImg" src="" alt="">
-    <p id="modalDesc"></p>
-  </div>
-</div>
-
-<script>
-function openModal(title, desc, imgSrc) {
-  document.getElementById('modalTitle').innerText = title;
-  document.getElementById('modalDesc').innerText = desc;
-  document.getElementById('modalImg').src = imgSrc;
-  document.getElementById('modalImg').alt = title;
-  document.getElementById('serviceModal').style.display = 'block';
-}
-
-function closeModal() {
-  document.getElementById('serviceModal').style.display = 'none';
-}
-
-window.onclick = function(event) {
-  if(event.target == document.getElementById('serviceModal')) {
-    closeModal();
-  }
-}
-</script>
-
-</body>
-</html>
