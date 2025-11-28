@@ -50,9 +50,32 @@
   }
 
   section h2 { text-align: center; color: #008d97; font-weight: 600; margin-bottom: 20px; }
-  section p { text-align: center; color: #444; font-size: 1rem; margin-bottom: 40px; }
+  section p { color: #444; font-size: 1rem; margin-bottom: 40px; text-align: center; }
 
-  /* Services 2x2 layout */
+  /* Owner section */
+  .owner-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 850px;
+    margin: 40px auto;
+  }
+
+  .owner-box img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .owner-text { color: #444; font-size: 1rem; line-height: 1.6; }
+
+  @media(max-width:700px){
+    .owner-box { flex-direction: column; text-align: center; }
+  }
+
+  /* Services */
   .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
   @media(max-width: 600px) { .services { grid-template-columns: 1fr; } }
 
@@ -80,10 +103,12 @@
   }
   .btn-more:hover { background-color: #005f63; }
 
+  /* Gallery */
   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
   .gallery img { width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
   .gallery img:hover { transform: scale(1.03); }
 
+  /* Contact */
   .contact-info { text-align: center; font-size: 1rem; color: #333; }
   .contact-info a { color: #008d97; text-decoration: none; font-weight: 600; }
 
@@ -102,27 +127,17 @@
 
   @media(max-width:600px) { header img { height: 120px; } }
 
-  /* Modal / Popup styling */
-  .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000;
-    left: 0; top: 0;
-    width: 100%; height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.5);
-  }
-
+  /* Modal */
+  .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
   .modal-content {
-    background-color: #fff;
-    margin: 10% auto; 
+    background: #fff;
+    margin: 10% auto;
     padding: 30px;
     border-radius: 8px;
     max-width: 500px;
     text-align: center;
     position: relative;
   }
-
   .modal-content img { max-width: 100%; margin: 15px 0; border-radius: 8px; }
   .close { color: #008d97; position: absolute; top: 10px; right: 15px; font-size: 24px; font-weight: bold; cursor: pointer; }
   .close:hover { color: #005f63; }
@@ -149,6 +164,15 @@
     Fizio Studio 7 je prostor posvećen negovanju tela kroz pokret, ravnotežu i individualni pristup.  
     Naš cilj je da kroz profesionalne programe rehabilitacije i oporavka pomognemo telu da povrati svoju prirodnu funkcionalnost i lakoću pokreta.
   </p>
+
+  <!-- Owner Section -->
+  <div class="owner-box">
+    <img src="vlasnik.jpg" alt="Vlasnik studija">
+    <div class="owner-text">
+      <p><strong>Osnivač studija – Ime Prezime</strong><br>
+      Sa dugogodišnjim iskustvom u fizioterapiji i radu sa sportistima, posvećen sam stvaranju prostora u kojem svaki klijent dobija individualan pristup, kvalitetan tretman i profesionalnu podršku.</p>
+    </div>
+  </div>
 </section>
 
 <section id="usluge">
@@ -180,9 +204,9 @@
 <section id="galerija">
   <h2>Galerija</h2>
   <div class="gallery">
-    <img src="studio1.jpg" alt="Prostor studija">
-    <img src="studio2.jpg" alt="Tretmani">
-    <img src="studio3.jpg" alt="Oprema i ambijent">
+    <img src="studio1.jpg" alt="Studio slika 1">
+    <img src="studio2.jpg" alt="Studio slika 2">
+    <img src="studio3.jpg" alt="Studio slika 3">
   </div>
 </section>
 
@@ -190,10 +214,10 @@
   <h2>Kontakt</h2>
   <div class="contact-info">
     <p>Dimitrija Avramovića 17, Novi Sad</p>
-    <p>
-      <a href="https://wa.me/381616651755" target="_blank" rel="noopener noreferrer">WhatsApp</a> |
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> |
-      <a href="mailto:fiziostudio7@gmail.com">Email</a>
+    <p>Tel: <a href="tel:+381642653917">064 265 3917</a> | 
+       <a href="https://wa.me/381642653917" target="_blank">WhatsApp</a> | 
+       <a href="https://www.instagram.com/fizio.studio.7/" target="_blank">Instagram @fizio.studio.7</a> | 
+       <a href="mailto:fizio.studio.7@gmail.com">Email</a>
     </p>
   </div>
   <iframe
@@ -207,7 +231,7 @@
   © 2025 Fizio Studio 7 | Dizajn: Goran Babic
 </footer>
 
-<!-- Modal / Popup -->
+<!-- Modal -->
 <div id="serviceModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
