@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="sr">
 <head>
 <meta charset="UTF-8">
@@ -5,107 +6,236 @@
 <title>Fizio Studio 7</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
 <style>
-body {
-font-family: 'Montserrat', sans-serif;
-margin: 0; padding: 0;
-background: #f8f9f9;
-color: #222;
-overflow-x: hidden;
-line-height: 1.6;
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0; padding: 0;
+    background: #f8f9f9;
+    color: #222;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  header img { height: 150px; margin-bottom: 15px; }
+  header h1 { font-weight: 600; font-size: 1.8rem; color: #008d97; letter-spacing: 1px; }
+  header p { color: #666; font-style: italic; margin-top: 5px; }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background: #008d97;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s;
+  }
+
+  nav a:hover { opacity: 0.8; }
+
+  section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+
+  section h2 { text-align: center; color: #008d97; font-weight: 600; margin-bottom: 20px; }
+  section p { text-align: center; color: #444; font-size: 1rem; margin-bottom: 40px; }
+
+  /* Services 2x2 layout */
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  @media(max-width: 600px) { .services { grid-template-columns: 1fr; } }
+
+  .service {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  .service:hover { transform: translateY(-5px); background: #f0f8fa; }
+  .service h3 { color: #008d97; font-weight: 600; margin-bottom: 10px; }
+  .short-desc { color: #555; font-size: 0.95rem; margin-bottom: 15px; }
+
+  .btn-more {
+    padding: 10px 20px;
+    background-color: #008d97;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+  }
+  .btn-more:hover { background-color: #005f63; }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+  .gallery img { width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
+  .gallery img:hover { transform: scale(1.03); }
+
+  .contact-info { text-align: center; font-size: 1rem; color: #333; }
+  .contact-info a { color: #008d97; text-decoration: none; font-weight: 600; }
+
+  iframe { width: 100%; height: 350px; border: 0; border-radius: 8px; margin-top: 25px; }
+
+  footer {
+    text-align: center;
+    background: #fff;
+    border-top: 1px solid #e6e6e6;
+    padding: 25px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  footer a { color: #008d97; text-decoration: none; margin: 0 10px; }
+  footer a:hover { text-decoration: underline; }
+
+  @media(max-width:600px) { header img { height: 120px; } }
+
+  /* Modal / Popup styling */
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto; 
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+
+  .modal-content img { max-width: 100%; margin: 15px 0; border-radius: 8px; }
+  .close { color: #008d97; position: absolute; top: 10px; right: 15px; font-size: 24px; font-weight: bold; cursor: pointer; }
+  .close:hover { color: #005f63; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="f7.jpg" alt="Fizio Studio 7 logo">
+  <h1>FIZIO STUDIO 7</h1>
+  <p>Vaš prostor za pokret, ravnotežu i oporavak</p>
+</header>
+
+<nav>
+  <a href="#onama">O nama</a>
+  <a href="#usluge">Usluge</a>
+  <a href="#galerija">Galerija</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<section id="onama">
+  <h2>O nama</h2>
+  <p>
+    Fizio Studio 7 je prostor posvećen negovanju tela kroz pokret, ravnotežu i individualni pristup.  
+    Naš cilj je da kroz profesionalne programe rehabilitacije i oporavka pomognemo telu da povrati svoju prirodnu funkcionalnost i lakoću pokreta.
+  </p>
+</section>
+
+<section id="usluge">
+  <h2>Usluge</h2>
+  <div class="services">
+    <div class="service">
+      <h3>Fizioterapijski tretmani</h3>
+      <p class="short-desc">Oporavak i balans mišića i zglobova kroz prilagođene programe.</p>
+      <button class="btn-more" onclick="openModal('Fizioterapijski tretmani', 'Detaljan opis fizioterapijskih tretmana i kako pomažu klijentima.', 'fizio1.jpg')">Više</button>
+    </div>
+    <div class="service">
+      <h3>Rehabilitacija nakon povreda</h3>
+      <p class="short-desc">Postepeni povratak pokretljivosti i stabilnosti nakon povreda.</p>
+      <button class="btn-more" onclick="openModal('Rehabilitacija nakon povreda', 'Detaljan opis rehabilitacije i programa nakon povreda.', 'fizio2.jpg')">Više</button>
+    </div>
+    <div class="service">
+      <h3>Relaks i terapeutske masaže</h3>
+      <p class="short-desc">Smanjenje napetosti i poboljšanje cirkulacije mišića.</p>
+      <button class="btn-more" onclick="openModal('Relaks i terapeutske masaže', 'Detaljan opis masaža i terapijskih tehnika.', 'fizio3.jpg')">Više</button>
+    </div>
+    <div class="service">
+      <h3>Kineziterapija</h3>
+      <p class="short-desc">Vežbe za pravilno držanje, stabilnost i balans tela.</p>
+      <button class="btn-more" onclick="openModal('Kineziterapija', 'Detaljan opis kineziterapijskih vežbi i programa.', 'fizio4.jpg')">Više</button>
+    </div>
+  </div>
+</section>
+
+<section id="galerija">
+  <h2>Galerija</h2>
+  <div class="gallery">
+    <img src="studio1.jpg" alt="Prostor studija">
+    <img src="studio2.jpg" alt="Tretmani">
+    <img src="studio3.jpg" alt="Oprema i ambijent">
+  </div>
+</section>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <div class="contact-info">
+    <p>Dimitrija Avramovića 17, Novi Sad</p>
+    <p>
+      <a href="https://wa.me/381616651755" target="_blank" rel="noopener noreferrer">WhatsApp</a> |
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="mailto:fiziostudio7@gmail.com">Email</a>
+    </p>
+  </div>
+  <iframe
+    src="https://www.google.com/maps?q=Dimitrija%20Avramovica%2017,%20Novi%20Sad&output=embed"
+    allowfullscreen
+    loading="lazy">
+  </iframe>
+</section>
+
+<footer>
+  © 2025 Fizio Studio 7 | Dizajn: Goran Babic
+</footer>
+
+<!-- Modal / Popup -->
+<div id="serviceModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImg" src="" alt="">
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+function openModal(title, desc, imgSrc) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalDesc').innerText = desc;
+  document.getElementById('modalImg').src = imgSrc;
+  document.getElementById('modalImg').alt = title;
+  document.getElementById('serviceModal').style.display = 'block';
 }
 
-
-header {
-text-align: center;
-padding: 40px 20px;
-background: #fff;
-border-bottom: 1px solid #e6e6e6;
+function closeModal() {
+  document.getElementById('serviceModal').style.display = 'none';
 }
 
-
-header img { height: 150px; margin-bottom: 15px; }
-header h1 { font-weight: 600; font-size: 1.8rem; color: #008d97; letter-spacing: 1px; }
-header p { color: #666; font-style: italic; margin-top: 5px; }
-
-
-nav {
-display: flex;
-justify-content: center;
-gap: 25px;
-padding: 15px;
-background: #008d97;
+window.onclick = function(event) {
+  if(event.target == document.getElementById('serviceModal')) {
+    closeModal();
+  }
 }
+</script>
 
-
-nav a {
-color: #fff;
-text-decoration: none;
-font-weight: 600;
-transition: opacity 0.3s;
-}
-
-
-nav a:hover { opacity: 0.8; }
-
-
-section {
-max-width: 1000px;
-margin: 60px auto;
-padding: 0 20px;
-}
-
-
-section h2 { text-align: center; color: #008d97; font-weight: 600; margin-bottom: 20px; }
-section p { text-align: center; color: #444; font-size: 1rem; margin-bottom: 40px; }
-
-
-/* Services 2x2 layout */
-.services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-@media(max-width: 600px) { .services { grid-template-columns: 1fr; } }
-
-
-.service {
-background: #fff;
-border-radius: 8px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-padding: 25px;
-text-align: center;
-transition: transform 0.3s ease, background 0.3s ease;
-}
-.service:hover { transform: translateY(-5px); background: #f0f8fa; }
-.service h3 { color: #008d97; font-weight: 600; margin-bottom: 10px; }
-.short-desc { color: #555; font-size: 0.95rem; margin-bottom: 15px; }
-
-
-.btn-more {
-padding: 10px 20px;
-background-color: #008d97;
-color: #fff;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-font-weight: 600;
-transition: background 0.3s;
-}
-.btn-more:hover { background-color: #005f63; }
-
-
-.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
-.gallery img { width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
-.gallery img:hover { transform: scale(1.03); }
-
-
-.contact-info { text-align: center; font-size: 1rem; color: #333; }
-.contact-info a { color: #008d97; text-decoration: none; font-weight: 600; }
-
-
-iframe { width: 100%; height: 350px; border: 0; border-radius: 8px; margin-top: 25px; }
-
-
-footer {
-text-align: center;
-background: #fff;
-border-top: 1px solid #e6e6e6;
-padding: 25px;
-font-size: 0.9rem;
+</body>
 </html>
