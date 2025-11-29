@@ -166,14 +166,77 @@
   </p>
 
   <!-- Owner Section -->
+
   <div class="owner-box">
-    <img src="titula.jpg" alt="Vlasnik studija">
+    <div class="owner-images">
+      <img src="titula.jpg" alt="Vlasnik studija – Nenad Babić">
+      <img src="teren.jpg" alt="Vlasnik na terenu / sportska aktivnost">
+    </div>
     <div class="owner-text">
       <p><strong>Osnivač i vlasnik studija – Nenad Babić</strong><br>
-      nije samo vrhunski fizioterapeut, on je diplomirani profesor fizičke kulture, dugogodišnji profesionalni sportista-košarkaš i nosilac prestižnih nagrada. Jedan je od retkih stručnjaka koji je spojio vrhunsku teoriju sa višegodišnjom praksom</p>
-    </div>
+      Nije samo vrhunski fizioterapeut, već i diplomirani profesor fizičke kulture, dugogodišnji profesionalni sportista (košarkaš) i nosilac prestižnih nagrada.</p>
+
+```
+  <ul>
+    <li>7 godina glavni fizioterapeut u RK Vojvodina</li>
+    <li>Glavni fizioterapeut juniorske rukometne reprezentacije na svetskom prvenstvu</li>
+    <li>Igrač KK Olimpija (Slovenija) i KK Vojvodina (Novi Sad)</li>
+    <li>Dugogodišnja praksa u radu sa telom i sportistima</li>
+  </ul>
+
+  <p>Jedan je od retkih stručnjaka koji je spojio vrhunsku teoriju sa višegodišnjom praktičnom iskustvom, pružajući tretmane koji pomažu telu da povrati prirodnu funkcionalnost i lakoću pokreta.</p>
+</div>
+```
+
   </div>
 </section>
+
+<style>
+.owner-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+}
+
+.owner-images {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.owner-images img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.owner-text { 
+  flex: 1; 
+  color: #444; 
+  font-size: 1rem; 
+  line-height: 1.6; 
+}
+
+.owner-text ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.owner-text li {
+  margin-bottom: 5px;
+}
+
+@media(max-width:700px){
+  .owner-box { flex-direction: column; text-align: center; align-items: center; }
+  .owner-images { flex-direction: row; gap: 15px; justify-content: center; }
+  .owner-images img { width: 180px; height: 180px; }
+}
+</style>
 
 <section id="usluge">
   <h2>Usluge</h2>
