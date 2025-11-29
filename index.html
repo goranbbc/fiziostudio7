@@ -174,14 +174,18 @@
     <div class="owner-text">
       <p><strong>Osnivač i vlasnik studija – Nenad Babić</strong><br>
       Nije samo vrhunski fizioterapeut, već i diplomirani profesor fizičke kulture, dugogodišnji profesionalni sportista (košarkaš) i nosilac prestižnih nagrada.</p>
-    <li>RK Vojvodina - glavni fizio - 7 godina</li>
+
+```
+  <ul>
+    <li>RK Vojvodina - glavni fizioterapeut - 7 godina</li>
     <li>Juniorska rukometna reprezentacija Srbije - Svetsko prvenstvo 2023</li>
-    <li>KK Olimpija (ljubljana) i KK Vojvodina (Novi Sad) - profesionalni košarkaš</li>
+    <li>KK Olimpija (Ljubljana) i KK Vojvodina (Novi Sad) - profesionalni košarkaš</li>
     <li>Dugogodišnja državna zdravstvena praksa</li>
   </ul>
 
   <p>Jedan je od retkih stručnjaka koji je spojio vrhunsku teoriju sa višegodišnjom praktičnom iskustvom, pružajući tretmane koji pomažu telu da povrati prirodnu funkcionalnost i lakoću pokreta.</p>
 </div>
+```
 
   </div>
 </section>
@@ -189,17 +193,19 @@
 <style>
 .owner-box {
   display: flex;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 30px;
   max-width: 900px;
   margin: 40px auto;
   flex-wrap: wrap;
+  text-align: left;
 }
 
 .owner-images {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  justify-content: center;
 }
 
 .owner-images img {
@@ -218,8 +224,8 @@
 }
 
 .owner-text ul {
-  margin: 10px 0;
-  padding-left: 20px;
+  margin: 10px 0 20px 20px;
+  padding: 0;
 }
 
 .owner-text li {
@@ -228,10 +234,10 @@
 
 @media(max-width:700px){
   .owner-box { flex-direction: column; text-align: center; align-items: center; }
-  .owner-images { flex-direction: row; gap: 15px; justify-content: center; }
-  .owner-images img { width: 180px; height: 180px; }
+  .owner-text ul { padding-left: 0; }
 }
 </style>
+
 
 <section id="usluge">
   <h2>Usluge</h2>
