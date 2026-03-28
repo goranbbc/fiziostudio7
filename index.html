@@ -3,290 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fizio Studio 7 | Novi Sad</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <title>FIZIO STUDIO 7 | Nenad Babić</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #008d97;
-            --primary-dark: #005f63;
-            --accent: #f0f8fa;
-            --text-dark: #2d3436;
-            --text-light: #636e72;
+            --medical-teal: #007A82;
+            --dark: #1a1a1a;
+            --light-grey: #f4f7f7;
+            --border: #e2e8f0;
             --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
-        * { box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0; padding: 0;
-            background: #fdfdfd;
-            color: var(--text-dark);
-            line-height: 1.7;
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Header & Navigation --- */
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--white);
-        }
-
-        header img { height: 120px; margin-bottom: 20px; transition: transform 0.3s; }
-        header img:hover { transform: scale(1.05); }
-
-        header h1 { 
-            font-weight: 700; 
-            font-size: 2.2rem; 
-            color: var(--primary); 
-            letter-spacing: 2px;
-            margin: 0;
-        }
-
-        header p { color: var(--text-light); font-size: 1.1rem; margin-top: 10px; font-weight: 300; }
-
+        /* --- Navigation --- */
         nav {
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
+            background: rgba(255, 255, 255, 0.98);
             z-index: 1000;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 18px;
-            background: rgba(0, 141, 151, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        nav a {
-            color: var(--white);
+        .logo-text {
+            font-weight: 700;
+            letter-spacing: -1px;
+            font-size: 1.2rem;
+            color: var(--medical-teal);
+        }
+
+        .nav-links a {
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            color: var(--dark);
+            margin-left: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 0.3s;
+            transition: color 0.3s;
         }
 
-        nav a:hover { opacity: 0.7; }
+        .nav-links a:hover { color: var(--medical-teal); }
 
-        /* --- Sections --- */
-        section {
-            max-width: 1100px;
-            margin: 80px auto;
-            padding: 0 25px;
-        }
-
-        h2 { 
-            text-align: center; 
-            color: var(--primary); 
-            font-weight: 700; 
-            font-size: 2rem;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: var(--primary);
-            margin: 15px auto;
-            border-radius: 2px;
-        }
-
-        /* --- Owner Box --- */
-        .owner-box {
-            display: flex;
+        /* --- Hero Section --- */
+        .hero {
+            padding: 100px 5%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
             align-items: center;
-            gap: 50px;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .owner-images img {
-            width: 280px;
-            height: 350px;
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 500px;
+            margin-bottom: 35px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 500px;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 10px 10px 0px var(--accent);
+            border-radius: 4px; /* Minimalistički, skoro oštro */
         }
 
-        .owner-text h3 { color: var(--primary); margin-top: 0; }
-        .owner-text ul { list-style: none; padding: 0; }
-        .owner-text li { 
-            margin-bottom: 12px; 
-            padding-left: 25px; 
-            position: relative; 
-        }
-        .owner-text li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
+        /* --- Services (Grid) --- */
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--medical-teal);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        /* --- Services --- */
-        .services { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 25px; 
+        .services-section {
+            background: var(--light-grey);
+            padding: 100px 5%;
         }
 
-        .service {
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border); /* Stvara tanke linije između kartica */
+            border: 1px solid var(--border);
+        }
+
+        .service-card {
             background: var(--white);
-            border-radius: 15px;
-            padding: 35px 25px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #f0f0f0;
+            padding: 50px 30px;
+            transition: background 0.3s;
         }
 
-        .service:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: var(--primary);
+        .service-card:hover { background: #fafafa; }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .service h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 15px; }
-        .service p { font-size: 0.95rem; color: var(--text-light); }
-
-        /* --- Gallery --- */
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
+        .service-card p {
+            font-size: 0.9rem;
+            color: #777;
         }
 
-        .gallery img { 
-            width: 100%; 
-            height: 250px;
-            object-fit: cover;
-            border-radius: 12px; 
-            transition: 0.4s;
-            cursor: pointer;
+        /* --- CV Section --- */
+        .cv-section {
+            padding: 120px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .gallery img:hover { filter: brightness(0.8); transform: scale(1.02); }
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+        }
 
-        /* --- Contact --- */
-        .contact-card {
-            background: var(--primary);
+        .cv-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cv-item span {
+            font-size: 0.8rem;
+            color: var(--medical-teal);
+            font-weight: 700;
+        }
+
+        .cv-item h4 { margin: 5px 0; font-size: 1.2rem; }
+
+        /* --- Map & Contact --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 600px;
+            background: var(--dark);
+        }
+
+        .contact-details {
+            padding: 80px;
             color: var(--white);
-            padding: 50px;
-            border-radius: 20px;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .contact-card a { color: var(--white); font-weight: 700; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 2px; transition: 0.3s; }
-        .contact-card a:hover { border-bottom-color: var(--white); }
+        .contact-details h2 { font-size: 2.5rem; margin-bottom: 30px; letter-spacing: -1px; }
 
-        iframe { width: 100%; height: 400px; border: 0; border-radius: 20px; margin-top: 30px; box-shadow: var(--shadow); }
+        .contact-link {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+
+        .contact-link:hover { opacity: 0.6; }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(1) invert(0.92); /* Luksuzan sivi izgled mape */
+        }
 
         footer {
+            padding: 50px 5%;
             text-align: center;
-            padding: 40px;
-            background: #f1f1f1;
-            font-size: 0.9rem;
-            color: var(--text-light);
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* --- Mobile Responsive --- */
-        @media(max-width: 850px) {
-            .owner-box { flex-direction: column; text-align: center; padding: 20px; }
-            .owner-images img { width: 100%; height: auto; }
-            nav { gap: 15px; font-size: 0.8rem; }
+        @media (max-width: 1000px) {
+            .hero, .cv-grid, .contact-container, .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-container { height: auto; }
+            .map-wrapper { height: 400px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="f7.jpg" alt="Fizio Studio 7 logo">
-    <h1>FIZIO STUDIO 7</h1>
-    <p>Profesionalna fizioterapija i rehabilitacija</p>
-</header>
-
 <nav>
-    <a href="#onama">O nama</a>
-    <a href="#usluge">Usluge</a>
-    <a href="#galerija">Galerija</a>
-    <a href="#kontakt">Kontakt</a>
+    <div class="logo-text">FIZIO STUDIO 7</div>
+    <div class="nav-links">
+        <a href="#onama">Ekspertiza</a>
+        <a href="#usluge">Usluge</a>
+        <a href="#kontakt">Kontakt</a>
+    </div>
 </nav>
 
-<section id="onama">
-    <h2>O nama</h2>
-    <div class="owner-box">
-        <div class="owner-images">
-            <img src="titula.jpg" alt="Nenad Babić">
-        </div>
-        <div class="owner-text">
-            <h3>Nenad Babić</h3>
-            <p><strong>Osnivač i vodeći fizioterapeut</strong></p>
-            <p>Spoj vrhunske teorije i višegodišnjeg iskustva u radu sa elitnim sportistima i pacijentima u državnoj praksi.</p>
-            <ul>
-                <li>7 godina glavni fizioterapeut RK Vojvodina</li>
-                <li>Fizioterapeut reprezentacije Srbije (SP 2023)</li>
-                <li>Diplomirani profesor fizičke kulture</li>
-                <li>Bivši profesionalni košarkaš (KK Olimpija, KK Vojvodina)</li>
-            </ul>
-        </div>
+<section class="hero">
+    <div class="hero-text">
+        <span class="section-label">Specijalistička praksa</span>
+        <h1>Povratak pokretu kroz nauku i iskustvo.</h1>
+        <p>Individualni terapeutski pristup vođen decenijskim iskustvom u vrhunskom profesionalnom sportu.</p>
+        <a href="tel:+381642653917" style="display: inline-block; padding: 18px 35px; background: var(--dark); color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;">ZAKAŽITE TERMIN</a>
+    </div>
+    <div class="hero-image">
+        <img src="f7.jpg" alt="Fizio Studio 7 Interior">
     </div>
 </section>
 
-<section id="usluge">
-    <h2>Naše Usluge</h2>
-    <div class="services">
-        <div class="service">
+<section class="services-section" id="usluge">
+    <span class="section-label" style="text-align: center;">Metodologija rada</span>
+    <div class="services-grid">
+        <div class="service-card">
             <h3>Fizioterapija</h3>
-            <p>Individualni programi za oslobađanje od bola i vraćanje funkcionalnosti tela.</p>
+            <p>Klinički tretmani fokusirani na uzrok bola, a ne samo na simptome.</p>
         </div>
-        <div class="service">
+        <div class="service-card">
             <h3>Rehabilitacija</h3>
-            <p>Specijalizovani oporavak nakon sportskih povreda i operativnih zahvata.</p>
+            <p>Post-operativni i post-traumatski oporavak po protokolima vrhunskog sporta.</p>
         </div>
-        <div class="service">
-            <h3>Masaže</h3>
-            <p>Terapeutske i relaks masaže za eliminaciju stresa i mišićne napetosti.</p>
+        <div class="service-card">
+            <h3>Kineziterapija</h3>
+            <p>Precizno dozirane vežbe za korekciju posture i jačanje duboke muskulature.</p>
         </div>
-        <div class="service">
-            <h3>Korektivne vežbe</h3>
-            <p>Unapređenje držanja i stabilnosti kroz naučno zasnovane metode vežbanja.</p>
+        <div class="service-card">
+            <h3>Manualna terapija</h3>
+            <p>Napredne tehnike mobilizacije tkiva i zglobova za momentalno olakšanje.</p>
         </div>
     </div>
 </section>
 
-<section id="galerija">
-    <h2>Galerija</h2>
-    <div class="gallery">
-        <img src="t2.jpg" alt="Studio 1">
-        <img src="t4.jpg" alt="Studio 2">
-        <img src="t3.jpg" alt="Studio 3">
+<section class="cv-section" id="onama">
+    <div class="cv-grid">
+        <div>
+            <span class="section-label">Osnivač</span>
+            <h2 style="font-size: 2.5rem; letter-spacing: -1px;">Nenad Babić</h2>
+            <p style="margin-top: 20px; color: #666;">Diplomirani profesor fizičke kulture i vrhunski fizioterapeut sa 15+ godina iskustva u kliničkoj i sportskoj praksi.</p>
+            <img src="titula.jpg" style="width: 100%; margin-top: 40px; border-radius: 2px;" alt="Nenad Babic">
+        </div>
+        <div>
+            <div class="cv-item">
+                <span>2017 — 2024</span>
+                <h4>RK Vojvodina</h4>
+                <p>Glavni fizioterapeut prvog tima tokom najuspešnije ere kluba.</p>
+            </div>
+            <div class="cv-item">
+                <span>2023</span>
+                <h4>Reprezentacija Srbije</h4>
+                <p>Fizioterapeut juniorske rukometne reprezentacije na Svetskom prvenstvu.</p>
+            </div>
+            <div class="cv-item">
+                <span>Expertise</span>
+                <h4>Profesionalni sport</h4>
+                <p>Bivši košarkaš KK Olimpija i KK Vojvodina — razumevanje povreda iz ugla sportiste.</p>
+            </div>
+            <div class="cv-item">
+                <span>Praksa</span>
+                <h4>Državna zdravstvena praksa</h4>
+                <p>Dugogodišnji rad u sistemu zdravstvene zaštite na najsloženijim slučajevima.</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<section id="kontakt">
-    <h2>Kontaktirajte nas</h2>
-    <div class="contact-card">
-        <p style="font-size: 1.2rem; margin-bottom: 20px;">Dimitrija Avramovića 17, Novi Sad</p>
-        <p>
-            Telefon: <a href="tel:+381642653917">064 265 3917</a><br><br>
-            <a href="https://wa.me/381642653917" target="_blank">WhatsApp</a> &nbsp;|&nbsp; 
-            <a href="https://www.instagram.com/fizio.studio.7/" target="_blank">Instagram</a> &nbsp;|&nbsp; 
-            <a href="mailto:fizio.studio.7@gmail.com">Email</a>
-        </p>
+<section class="contact-container" id="kontakt">
+    <div class="contact-details">
+        <span class="section-label" style="color: rgba(255,255,255,0.5);">Lokacija i Kontakt</span>
+        <h2>Novi Sad</h2>
+        <p style="margin-bottom: 40px; color: #ccc;">Dimitrija Avramovića 17, 21000 Novi Sad</p>
+        
+        <a href="tel:+381642653917" class="contact-link">064 265 3917</a>
+        <a href="mailto:fizio.studio.7@gmail.com" class="contact-link" style="font-size: 1.1rem;">fizio.studio.7@gmail.com</a>
+        
+        <div style="margin-top: 40px;">
+            <a href="https://instagram.com/fizio.studio.7" style="color: white; margin-right: 20px; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">INSTAGRAM</a>
+            <a href="#" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">WHATSAPP</a>
+        </div>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d2808.5!2d19.83!3d45.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDE1JzAwLjAiTiAxOcKwNDknNDguMCJF!5e0!3m2!1ssr!2srs!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+    <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2808.5322!2d19.8322!3d45.2522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b10696b9f67a7%3A0x6b49e326b483c6b4!2sDimitrija%20Avramovi%C4%87a%2017%2C%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+    </div>
 </section>
 
 <footer>
-    <p>© 2026 Fizio Studio 7 | Posvećeni vašem zdravlju</p>
+    © 2026 FIZIO STUDIO 7 — SVA PRAVA ZADRŽANA.
 </footer>
 
 </body>
