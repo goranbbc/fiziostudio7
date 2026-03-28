@@ -2,217 +2,169 @@
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>FIZIO STUDIO 7 | Nenad Babić</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --medical-teal: #007A82;
-            --dark: #1a1a1a;
-            --light-grey: #f4f7f7;
-            --border: #e2e8f0;
+            --dark: #121212;
+            --light-grey: #f8fafb;
+            --border: #eaeff2;
             --white: #ffffff;
+            --container: 1200px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--white);
             color: var(--dark);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* --- Navigation --- */
+        /* --- Navigacija (Sticky & Clean) --- */
         nav {
-            padding: 30px 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
         .logo-text {
             font-weight: 700;
-            letter-spacing: -1px;
-            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            font-size: 1.1rem;
             color: var(--medical-teal);
+            text-transform: uppercase;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
-            margin-left: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            margin-left: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s;
         }
 
-        .nav-links a:hover { color: var(--medical-teal); }
-
-        /* --- Hero Section --- */
+        /* --- Hero --- */
         .hero {
-            padding: 100px 5%;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            align-items: center;
-            gap: 60px;
-            max-width: 1400px;
+            padding: 80px 5%;
+            max-width: var(--container);
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
         .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             line-height: 1.1;
-            font-weight: 700;
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 500px;
-            margin-bottom: 35px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
         }
 
         .hero-image img {
             width: 100%;
-            height: 500px;
+            height: 450px;
             object-fit: cover;
-            border-radius: 4px; /* Minimalistički, skoro oštro */
+            border-radius: 2px;
         }
 
-        /* --- Services (Grid) --- */
+        /* --- Sekcije Generalno --- */
+        section { padding: 100px 5%; max-width: var(--container); margin: 0 auto; }
         .section-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: var(--medical-teal);
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: block;
         }
 
-        .services-section {
-            background: var(--light-grey);
-            padding: 100px 5%;
-        }
-
+        /* --- Usluge (Minimal Grid) --- */
+        .services-wrapper { background: var(--light-grey); max-width: 100%; }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1px;
-            background: var(--border); /* Stvara tanke linije između kartica */
+            background: var(--border);
             border: 1px solid var(--border);
         }
 
         .service-card {
             background: var(--white);
-            padding: 50px 30px;
-            transition: background 0.3s;
+            padding: 40px;
+            transition: 0.3s;
         }
 
-        .service-card:hover { background: #fafafa; }
+        .service-card h3 { font-size: 1rem; margin-bottom: 10px; font-weight: 700; }
+        .service-card p { font-size: 0.85rem; color: #666; }
 
-        .service-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
+        /* --- Ekspertiza (Nenad Babić) --- */
+        .cv-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; }
+        .cv-list { list-style: none; }
+        .cv-item { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
+        .cv-item h4 { font-size: 1.1rem; font-weight: 700; }
+        .cv-item p { font-size: 0.9rem; color: #666; }
 
-        .service-card p {
-            font-size: 0.9rem;
-            color: #777;
-        }
-
-        /* --- CV Section --- */
-        .cv-section {
-            padding: 120px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cv-grid {
+        /* --- Galerija (Asimetrična) --- */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 80px;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 15px;
         }
+        .gallery-item { overflow: hidden; background: #eee; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .item-1 { grid-column: 1 / 7; grid-row: 1 / 3; }
+        .item-2 { grid-column: 7 / 13; grid-row: 1 / 2; }
+        .item-3 { grid-column: 7 / 10; grid-row: 2 / 3; }
+        .item-4 { grid-column: 10 / 13; grid-row: 2 / 3; }
 
-        .cv-item {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-        }
+        /* --- Kontakt & Mapa --- */
+        .contact-section { max-width: 100%; padding: 0; display: grid; grid-template-columns: 1fr 1fr; background: var(--dark); color: white; }
+        .contact-info { padding: 80px 10%; display: flex; flex-direction: column; justify-content: center; }
+        .contact-info h2 { font-size: 2.5rem; margin-bottom: 30px; letter-spacing: -1px; }
+        .contact-info a { color: white; text-decoration: none; font-size: 1.2rem; display: block; margin-bottom: 10px; font-weight: 300; }
+        
+        .map-box { height: 500px; min-height: 100%; }
+        .map-box iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(0.9); }
 
-        .cv-item span {
-            font-size: 0.8rem;
-            color: var(--medical-teal);
-            font-weight: 700;
-        }
+        footer { padding: 40px; text-align: center; font-size: 0.7rem; letter-spacing: 2px; color: #999; border-top: 1px solid var(--border); }
 
-        .cv-item h4 { margin: 5px 0; font-size: 1.2rem; }
+        /* --- Mobilna Prilagodba (Responsive) --- */
+        @media (max-width: 850px) {
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; } /* Sakrivamo linkove na mobitelu radi minimalizma */
+            
+            .hero { grid-template-columns: 1fr; padding-top: 40px; text-align: center; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-image img { height: 300px; }
 
-        /* --- Map & Contact --- */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            height: 600px;
-            background: var(--dark);
-        }
+            .cv-grid { grid-template-columns: 1fr; gap: 30px; }
+            
+            .gallery-grid { display: flex; flex-direction: column; }
+            .gallery-item { height: 250px; }
 
-        .contact-details {
-            padding: 80px;
-            color: var(--white);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-details h2 { font-size: 2.5rem; margin-bottom: 30px; letter-spacing: -1px; }
-
-        .contact-link {
-            display: block;
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            font-weight: 300;
-            transition: opacity 0.3s;
-        }
-
-        .contact-link:hover { opacity: 0.6; }
-
-        .map-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            filter: grayscale(1) invert(0.92); /* Luksuzan sivi izgled mape */
-        }
-
-        footer {
-            padding: 50px 5%;
-            text-align: center;
-            font-size: 0.75rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        @media (max-width: 1000px) {
-            .hero, .cv-grid, .contact-container, .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-container { height: auto; }
-            .map-wrapper { height: 400px; }
-            .nav-links { display: none; }
+            .contact-section { grid-template-columns: 1fr; }
+            .contact-info { padding: 60px 5%; text-align: center; }
+            .map-box { height: 350px; }
+            
+            section { padding: 60px 5%; }
         }
     </style>
 </head>
@@ -221,100 +173,105 @@
 <nav>
     <div class="logo-text">FIZIO STUDIO 7</div>
     <div class="nav-links">
-        <a href="#onama">Ekspertiza</a>
         <a href="#usluge">Usluge</a>
+        <a href="#onama">O nama</a>
+        <a href="#galerija">Galerija</a>
         <a href="#kontakt">Kontakt</a>
     </div>
 </nav>
 
-<section class="hero">
+<header class="hero">
     <div class="hero-text">
-        <span class="section-label">Specijalistička praksa</span>
-        <h1>Povratak pokretu kroz nauku i iskustvo.</h1>
-        <p>Individualni terapeutski pristup vođen decenijskim iskustvom u vrhunskom profesionalnom sportu.</p>
-        <a href="tel:+381642653917" style="display: inline-block; padding: 18px 35px; background: var(--dark); color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;">ZAKAŽITE TERMIN</a>
+        <span class="section-label">Fizioterapija & Rehabilitacija</span>
+        <h1>Za pokret bez bola.</h1>
+        <p>Vrhunska medicinska praksa i sportsko iskustvo u službi vašeg oporavka.</p>
+        <a href="tel:+381642653917" style="display: inline-block; background: var(--dark); color: white; padding: 18px 30px; text-decoration: none; font-size: 0.8rem; font-weight: 700; margin-top: 10px;">ZAKAŽITE PREGLED</a>
     </div>
     <div class="hero-image">
-        <img src="f7.jpg" alt="Fizio Studio 7 Interior">
+        <img src="f7.jpg" alt="Fizio Studio 7">
     </div>
-</section>
+</header>
 
-<section class="services-section" id="usluge">
-    <span class="section-label" style="text-align: center;">Metodologija rada</span>
-    <div class="services-grid">
-        <div class="service-card">
-            <h3>Fizioterapija</h3>
-            <p>Klinički tretmani fokusirani na uzrok bola, a ne samo na simptome.</p>
+<div class="services-wrapper" id="usluge">
+    <section>
+        <span class="section-label">Usluge</span>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Fizioterapija</h3>
+                <p>Ciljano rešavanje akutnih i hroničnih stanja bola.</p>
+            </div>
+            <div class="service-card">
+                <h3>Sportski oporavak</h3>
+                <p>Brz povratak na teren uz profesionalne protokole.</p>
+            </div>
+            <div class="service-card">
+                <h3>Kineziterapija</h3>
+                <p>Medicinske vežbe za dugoročnu stabilnost tela.</p>
+            </div>
+            <div class="service-card">
+                <h3>Manualne tehnike</h3>
+                <p>Stručna manipulacija tkiva za bolju pokretljivost.</p>
+            </div>
         </div>
-        <div class="service-card">
-            <h3>Rehabilitacija</h3>
-            <p>Post-operativni i post-traumatski oporavak po protokolima vrhunskog sporta.</p>
-        </div>
-        <div class="service-card">
-            <h3>Kineziterapija</h3>
-            <p>Precizno dozirane vežbe za korekciju posture i jačanje duboke muskulature.</p>
-        </div>
-        <div class="service-card">
-            <h3>Manualna terapija</h3>
-            <p>Napredne tehnike mobilizacije tkiva i zglobova za momentalno olakšanje.</p>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 
-<section class="cv-section" id="onama">
+<section id="onama">
     <div class="cv-grid">
-        <div>
-            <span class="section-label">Osnivač</span>
-            <h2 style="font-size: 2.5rem; letter-spacing: -1px;">Nenad Babić</h2>
-            <p style="margin-top: 20px; color: #666;">Diplomirani profesor fizičke kulture i vrhunski fizioterapeut sa 15+ godina iskustva u kliničkoj i sportskoj praksi.</p>
-            <img src="titula.jpg" style="width: 100%; margin-top: 40px; border-radius: 2px;" alt="Nenad Babic">
+        <div class="cv-intro">
+            <span class="section-label">Ekspertiza</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Nenad Babić</h2>
+            <img src="titula.jpg" style="width: 100%; border-radius: 2px;" alt="Nenad Babić">
         </div>
-        <div>
+        <div class="cv-list">
             <div class="cv-item">
-                <span>2017 — 2024</span>
                 <h4>RK Vojvodina</h4>
-                <p>Glavni fizioterapeut prvog tima tokom najuspešnije ere kluba.</p>
+                <p>7 godina kao vodeći fizioterapeut šampionskog tima.</p>
             </div>
             <div class="cv-item">
-                <span>2023</span>
-                <h4>Reprezentacija Srbije</h4>
-                <p>Fizioterapeut juniorske rukometne reprezentacije na Svetskom prvenstvu.</p>
+                <h4>Nacionalni tim</h4>
+                <p>Fizioterapeut rukometne reprezentacije Srbije (SP 2023).</p>
             </div>
             <div class="cv-item">
-                <span>Expertise</span>
-                <h4>Profesionalni sport</h4>
-                <p>Bivši košarkaš KK Olimpija i KK Vojvodina — razumevanje povreda iz ugla sportiste.</p>
+                <h4>Sportski fundament</h4>
+                <p>Bivši profesionalni košarkaš — duboko razumevanje mehanike sportskih povreda.</p>
             </div>
             <div class="cv-item">
-                <span>Praksa</span>
-                <h4>Državna zdravstvena praksa</h4>
-                <p>Dugogodišnji rad u sistemu zdravstvene zaštite na najsloženijim slučajevima.</p>
+                <h4>Kliničko iskustvo</h4>
+                <p>Višegodišnji rad u državnom zdravstvenom sektoru.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="contact-container" id="kontakt">
-    <div class="contact-details">
-        <span class="section-label" style="color: rgba(255,255,255,0.5);">Lokacija i Kontakt</span>
-        <h2>Novi Sad</h2>
-        <p style="margin-bottom: 40px; color: #ccc;">Dimitrija Avramovića 17, 21000 Novi Sad</p>
-        
-        <a href="tel:+381642653917" class="contact-link">064 265 3917</a>
-        <a href="mailto:fizio.studio.7@gmail.com" class="contact-link" style="font-size: 1.1rem;">fizio.studio.7@gmail.com</a>
-        
-        <div style="margin-top: 40px;">
-            <a href="https://instagram.com/fizio.studio.7" style="color: white; margin-right: 20px; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">INSTAGRAM</a>
-            <a href="#" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">WHATSAPP</a>
-        </div>
-    </div>
-    <div class="map-wrapper">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2808.5322!2d19.8322!3d45.2522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b10696b9f67a7%3A0x6b49e326b483c6b4!2sDimitrija%20Avramovi%C4%87a%2017%2C%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+<section id="galerija">
+    <span class="section-label">Galerija</span>
+    <div class="gallery-grid">
+        <div class="gallery-item item-1"><img src="t2.jpg" alt="Studio"></div>
+        <div class="gallery-item item-2"><img src="t4.jpg" alt="Tretman"></div>
+        <div class="gallery-item item-3"><img src="t3.jpg" alt="Oprema"></div>
+        <div class="gallery-item item-4"><img src="f7.jpg" alt="Enterijer"></div>
     </div>
 </section>
+
+<div class="contact-section" id="kontakt">
+    <div class="contact-info">
+        <span class="section-label" style="color: rgba(255,255,255,0.4);">Kontakt</span>
+        <h2>Novi Sad</h2>
+        <p style="color: #999; margin-bottom: 30px;">Dimitrija Avramovića 17</p>
+        <a href="tel:+381642653917">064 265 3917</a>
+        <a href="mailto:fizio.studio.7@gmail.com" style="font-size: 1rem;">fizio.studio.7@gmail.com</a>
+        <div style="margin-top: 30px;">
+            <a href="https://instagram.com/fizio.studio.7" style="font-size: 0.7rem; letter-spacing: 2px; display: inline; border: 1px solid #444; padding: 10px 20px;">INSTAGRAM</a>
+        </div>
+    </div>
+    <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2808.3308871324744!2d19.8338914!3d45.2612349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1191062f6b11%3A0x7d28543781254336!2sDimitrija%20Avramovi%C4%87a%2017%2C%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1710000000000" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
 
 <footer>
-    © 2026 FIZIO STUDIO 7 — SVA PRAVA ZADRŽANA.
+    © 2026 FIZIO STUDIO 7 | NENAD BABIĆ
 </footer>
 
 </body>
